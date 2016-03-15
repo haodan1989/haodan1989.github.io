@@ -16,7 +16,10 @@
 <input type="button" onclick="location.href='https://dandannoodle.github.io/';" value="Window Location Change to Wallet URL" />
 <br />
 <br />
-<a href="https://dandannoodle.github.io/">Link to Wallet URL</a>
+<a href="https://dandannoodle.github.io/">Link to Wallet URL - from User Action</a>
+<br />
+<br />
+<a href="#" id="programmaticLink">Link to Wallet URL - Programatic</a>
 
 <script>
     $( "#target" ).submit(function( event ) {
@@ -28,6 +31,20 @@
 
         event.preventDefault();
     });
+
+
+    $( "#programmaticLink" ).click(function(event){
+
+        var timerVar = setTimeout(launchProgrammatic, 1000);
+
+    });
+
+    function launchProgrammatic() {
+        window.location = 'https://dandannoodle.github.io/';
+
+        event.preventDefault();
+    }
+
 </script>
 </body>
 </html>
