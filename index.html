@@ -1,3 +1,6 @@
+<script src="js.cookie.js"></script>
+
+
 <head>
     <title>Test iOS Server</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -41,12 +44,10 @@
 
     function launchProgrammatic() {
         window.location = 'https://dandannoodle.github.io/';
-
         event.preventDefault();
     }
 
-
-    $.cookie("test", 1, { expires : 10 });
+    Cookies.set('name', 'value', { expires: 7, path: '/' });  
 
 
 </script>
