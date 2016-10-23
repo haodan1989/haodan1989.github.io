@@ -1,55 +1,38 @@
-<script src="js.cookie.js"></script>
-
-
-<head>
-    <title>Test iOS Server</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-</head>
+<!DOCTYPE html>
+<html>
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1a1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffdfef;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
 <body>
-<h1>Test iOS Server</h1>
-<br />
-<form id="target" action="#">
-    <input type="submit" value="Launch Wallet iFrame">
-</form>
-<br />
-<br />
-<input type="button" onclick="location.href='https://dandannoodle.github.io/';" value="Window Location Change to Wallet URL" />
-<br />
-<br />
-<a href="https://dandannoodle.github.io/">Link to Wallet URL - from User Action</a>
-<br />
-<br />
-<a href="#" id="programmaticLink">Link to Wallet URL - Programatic</a>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<img ng-src="{{myImgSrc}}">
+
+
+</div>
 
 <script>
-    $( "#target" ).submit(function( event ) {
-
-        var iframe = document.createElement('iframe');
-        //iframe.style.display = "none";
-        iframe.src = "https://dandannoodle.github.io/";
-        document.body.appendChild(iframe);
-
-        event.preventDefault();
-    });
-
-
-    $( "#programmaticLink" ).click(function(event){
-
-        var timerVar = setTimeout(launchProgrammatic, 1000);
-
-    });
-
-    function launchProgrammatic() {
-        window.location = 'https://dandannoodle.github.io/';
-        event.preventDefault();
-    }
-
-    Cookies.set('name', 'value', { expires: 7, path: '/' });  
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $sce) {
+  $scope.myImgSrc = $sce.trustAsResourceUrl('test/background.png');
+});
 
 
 </script>
+
+
 </body>
 </html>
