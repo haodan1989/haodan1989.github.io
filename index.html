@@ -18,26 +18,24 @@ body {
 .spinner
 {
 	position: absolute;
-	top: 100%;
-	left:40%;
-	width:  20%;
+	top:  810px;
+	left: 490px;
+	width: 20%;
 	height: 20%;
-	margin-right: -50%;
-	margin-bottom: -50%;
-
 }
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
 <body>
 
-<div ng-app="myApp" ng-controller="myCtrl">
+	<div ng-app="myApp" ng-controller="myCtrl">
 
-<img ng-src="{{myImgSrc}}" class = "background">
-<img ng-src="{{mySpinnerSrc}}" class = "spinner">
+	<img ng-src="{{myImgSrc}}" class = "background">
+	<img ng-src="{{mySpinnerSrc}}" class = "spinner">
 
-</div>
+	</div>
 
 <script>
 var app = angular.module('myApp', []);
