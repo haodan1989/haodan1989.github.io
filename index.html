@@ -18,8 +18,13 @@ body {
 .spinner
 {
 	position: absolute;
-	top: 600px;
-	left: 400px;
+	top: 100%;
+	left:40%;
+	width:  20%;
+	height: 20%;
+	margin-right: -50%;
+	margin-bottom: -50%;
+
 }
 </style>
 
@@ -40,8 +45,6 @@ app.controller('myCtrl', function($scope, $sce) {
   $scope.myImgSrc = $sce.trustAsResourceUrl('test/background.png');
   $scope.mySpinnerSrc = $sce.trustAsResourceUrl('test/spinner.gif');
 });
-
-
 
 </script>
 
