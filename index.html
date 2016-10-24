@@ -9,9 +9,8 @@ body {
 
 .background
 {
-	position:fixed;
+	position:relative;
 	z-index: 1;
-	width: 100%;
 	margin:0;
 }
 .spinner
@@ -31,13 +30,13 @@ body {
 
 <body>
 
-	<div ng-app="myApp" ng-controller="myCtrl">
+	<div ng-app="myApp" ng-controller="myCtrl" class = "background">
 
-	<img ng-src="{{myImgSrc}}" class = "background">
+	<img ng-src="{{myImgSrc}}">
 	
-
-	<img ng-src="{{mySpinnerSrc}}" class = "spinner">
-
+		<div class = "spinner">
+		<img ng-src="{{mySpinnerSrc}}">
+		</div>
 
 	</div>
 
