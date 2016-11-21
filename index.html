@@ -14,21 +14,20 @@ body {
 .background
 {
 	position:relative;
-	z-index: 1;
-	top: 0;
-	left: 0;
 	width: 100%;
 	height: 100%;
+	margin: 0 auto;
 }
+
+
 
 .spinner
 {
   position: absolute;
-  top:400px;
-  left: 400px;
-  height: 20%;
-  width: 20%;
-  z-index: 1;
+  top: 800px;
+  left: 50%;
+  margin-left: -300px /* negative half the width */
+}
 }
 
 </style>
@@ -40,9 +39,8 @@ body {
 
 	<div ng-app="myApp" ng-controller="myCtrl">
 	<img ng-src="{{myImgSrc}}" class = "background">
-		<div>
-			<img ng-src="{{mySpinnerSrc}}" class = "spinner"> 
-		</div>
+
+	<img ng-src="{{mySpinnerSrc}}" class = "spinner"> 
 	</div>
 
 <script>
