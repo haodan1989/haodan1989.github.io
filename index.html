@@ -19,14 +19,26 @@ body {
 	margin: 0 auto;
 }
 
+.logo
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 10%;
+  width: 40%;
+  margin-left: -112px /* negative half the width */
+
+}
 
 
 .spinner
 {
   position: absolute;
-  top: 800px;
+  top: 70%;
   left: 50%;
-  margin-left: -300px /* negative half the width */
+  height: 15%;
+  width: 20%;
+  margin-left: -60px /* negative half the width */
 }
 }
 
@@ -39,7 +51,7 @@ body {
 
 	<div ng-app="myApp" ng-controller="myCtrl">
 	<img ng-src="{{myImgSrc}}" class = "background">
-
+	<img ng-src="{{myLogoSrc}}" class = "logo">
 	<img ng-src="{{mySpinnerSrc}}" class = "spinner"> 
 	</div>
 
@@ -47,6 +59,7 @@ body {
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $sce) {
   $scope.myImgSrc = $sce.trustAsResourceUrl('test/background.png');
+  $scope.myLogoSrc = $sce.trustAsResourceUrl('test/logo.png');
   $scope.mySpinnerSrc = $sce.trustAsResourceUrl('test/spinner.gif');
 });
 
