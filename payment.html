@@ -50,6 +50,11 @@ body {
   width: 20%;
   margin-left: -60px /* negative half the width */
 }
+
+.confirmButton
+{
+  position: absolute;
+  bottom: 50px;
 }
 
 </style>
@@ -63,9 +68,10 @@ body {
 		<img ng-src="{{myImgSrc}}" class = "background">
 			<div class = "contentBlock">
 				<img ng-src="{{myLogoSrc}}" class = "logo">
-				<center><font size="6" color="#ffffff">Processing your payment</font></center>
+				<center><font size="7" color="#ffffff">Please wait while we take you</font></center>
+        <center><font size="7" color="#ffffff">back to the Merchant site to get</font></center>
+        <center><font size="7" color="#ffffff">confirmation of completion</font></center>
 				<div>
-				<img ng-src="{{mySpinnerSrc}}" class = "spinner"> 
 				</div>
 			</div>
 	</div>
