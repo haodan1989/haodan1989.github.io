@@ -297,8 +297,6 @@ $(document).ready(function () {
   operationManager.performOperation();
 });
 
-
-
 /*
  * Test Functions
  */
@@ -314,7 +312,6 @@ function testRead() {
   var cookieManager = new CookieManager('walletinformation');
   var cookieVlaue = cookieManager.readCookie()
   alert(cookieVlaue);
-
 };
 
 function testDelete() {
