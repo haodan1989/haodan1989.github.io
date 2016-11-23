@@ -5,116 +5,123 @@
 
 <html>
 
-<style>
+    <style>
 
-body {
-	margin:0;
-}
+        body {
+            margin:0;
+        }
 
-.background
-{
-	position:relative;
-	width: 100%;
-	height: 100%;
-	margin: 0 auto;
-}
+        .background
+        {
+            position:relative;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+        }
 
-.contentBlock{
-  position: absolute;
-  top: 20%;
-  width: 100%;
-}
-
-
-.logo
-{
-  position: relative;
-  left: 50%;
-  height: 15%;
-  width: 60%;
-  margin-left: -336px /* negative half the width */
-}
-
-.header{
-  position: relative;
-  margin-top: 20%;
-}
+        .contentBlock{
+            position: absolute;
+            top: 20%;
+            width: 100%;
+        }
 
 
-.spinner
-{
-  position: relative;
-  top: 20px;
-  left: 50%;
-  height: 15%;
-  width: 20%;
-  margin-left: -60px /* negative half the width */
-}
+        .logo
+        {
+            position: relative;
+            left: 50%;
+            height: 15%;
+            width: 60%;
+            margin-left: -336px /* negative half the width */
+        }
+
+        .header{
+            position: relative;
+            margin-top: 20%;
+        }
 
 
-table, td, th {
-    border: 1px solid black;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th {
-    height: 100px
-  }
-
-</style>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-<script type="text/javascript" src="operationmodel.js"></script>
-<script type="text/javascript" src="cookiemanager.js"></script>
-<script type="text/javascript" src="operationmanager.js"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="cookiemanager.js"></script>
-
-<body>
-
-	<div ng-app="myApp" ng-controller="myCtrl">
-		<img ng-src="{{myImgSrc}}" class = "background">
-			<div class = "contentBlock">
-				<img ng-src="{{myLogoSrc}}" class = "logo">
-				<div class = "header">
-				<center><font size="7" color="#ffffff">Please wait as we load</font></center>
-				<center><font size="7" color="#ffffff">your Masterpass Wallet</font></center>
-				<div>
-				</div>
-				<img ng-src="{{mySpinnerSrc}}" class = "spinner">
-				</div>
-			</div>
-
-      <button onclick="testWrite()">Write Cookie</button>
-      <button onclick="testRead()">Read Cookie</button>
-
-      <table>
-      <tr ng-repeat="x in names">
-        <td><center><button onclick="redirect">{{ x }}</button></center></td>
-      </tr>
-      </table>
-
-	</div>
+        .spinner
+        {
+            position: relative;
+            top: 20px;
+            left: 50%;
+            height: 15%;
+            width: 20%;
+            margin-left: -60px /* negative half the width */
+        }
 
 
-<script>
+        table, td, th {
+            border: 1px solid black;
+        }
 
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $sce) {
-  $scope.myImgSrc = $sce.trustAsResourceUrl('test/background.png');
-  $scope.myLogoSrc = $sce.trustAsResourceUrl('test/logo.png');
-  $scope.mySpinnerSrc = $sce.trustAsResourceUrl('test/spinner.gif');
-  $scope.names = getWalletId();
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-});
+        th {
+            height: 100px
+        }
 
-</script>
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script type="text/javascript" src="operationmodel.js"></script>
+    <script type="text/javascript" src="cookiemanager.js"></script>
+    <script type="text/javascript" src="operationmanager.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="cookiemanager.js"></script>
+
+    <body>
+
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <img ng-src="{{myImgSrc}}" class = "background">
+            <div class = "contentBlock">
+                <img ng-src="{{myLogoSrc}}" class = "logo">
+                <div class = "header">
+                    <center><font size="7" color="#ffffff">Please wait as we load</font></center>
+                    <center><font size="7" color="#ffffff">your Masterpass Wallet</font></center>
+                    <div>
+                    </div>
+                    <img ng-src="{{mySpinnerSrc}}" class = "spinner">
+                </div>
+            </div>
+
+            <button onclick="testWrite()">Write Cookie</button>
+            <button onclick="testRead()">Read Cookie</button>
+
+            <table>
+                <tr ng-repeat="x in names">
+                    <td><center><button ng-click="showWallet(x)">{{x}}</button></center></td>
+                </tr>
+            </table>
+
+        </div>
 
 
-</body>
+        <script>
+
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function ($scope, $sce) {
+                $scope.myImgSrc = $sce.trustAsResourceUrl('test/background.png');
+                $scope.myLogoSrc = $sce.trustAsResourceUrl('test/logo.png');
+                $scope.mySpinnerSrc = $sce.trustAsResourceUrl('test/spinner.gif');
+                $scope.names = getWalletId();
+
+
+                $scope.showWallet = function (wallet) {
+                    console.log("Selected Wallet: " + wallet);
+                    //Concatenate selected wallet ID with window.locations
+                    window.location.href = "http://www.google.com";
+                };
+
+            });
+
+        </script>
+
+
+    </body>
 </html>
