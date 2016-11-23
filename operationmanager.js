@@ -309,6 +309,8 @@ function getWalletId() {
   
   console.log("cookieValue is " + cookieValue);
     console.log("cookieValue JSON " + JSON.stringify(cookieValue));
+        console.log("cookieValue JSON " + (cookieValue.walletid));
+
    var walletId = cookieValue["walletid"];
    console.log("walletId is " + walletId);
   // return walletId.split("|");
