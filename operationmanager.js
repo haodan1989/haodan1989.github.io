@@ -297,6 +297,20 @@ $(document).ready(function () {
   operationManager.performOperation();
 });
 
+
+
+/*
+ *
+ */
+function getWalletId() {
+
+  var cookieManager = new CookieManager('walletinformation');
+  var cookieValue = cookieManager.readCookie();
+
+  var walletId = cookieValue.walletid;
+  return walletid.split("|");
+};
+
 /*
  * Test Functions
  */

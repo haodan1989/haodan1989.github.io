@@ -51,16 +51,26 @@ body {
   margin-left: -60px /* negative half the width */
 }
 
+
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 100px
+  }
+
 </style>
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script type="text/javascript" src="operationmodel.js"></script>
 <script type="text/javascript" src="cookiemanager.js"></script>
 <script type="text/javascript" src="operationmanager.js"></script>
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="cookiemanager.js"></script>
@@ -83,6 +93,12 @@ body {
       <button onclick="testWrite()">Write Cookie</button>
       <button onclick="testRead()">Read Cookie</button>
 
+      <table>
+      <tr ng-repeat="x in names">
+        <td><center><button onclick="redirect">{{ x }}</button></center></td>
+      </tr>
+      </table>
+
 	</div>
 
 
@@ -93,6 +109,8 @@ app.controller('myCtrl', function($scope, $sce) {
   $scope.myImgSrc = $sce.trustAsResourceUrl('test/background.png');
   $scope.myLogoSrc = $sce.trustAsResourceUrl('test/logo.png');
   $scope.mySpinnerSrc = $sce.trustAsResourceUrl('test/spinner.gif');
+  $scope.names = getWalletId();
+
 });
 
 </script>
