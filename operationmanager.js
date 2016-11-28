@@ -307,10 +307,7 @@ function getWalletId() {
   var cookieManager = new CookieManager('walletinformation');
   var cookieValue = cookieManager.readCookie();
   
-  console.log("cookieValue is " + cookieValue);
-  console.log("cookieValue JSON " + JSON.stringify(cookieValue));
   var walletId = JSON.parse(cookieValue).walletid;
-  console.log("walletId is " + walletId);
   return walletId.split("|");
 };
 

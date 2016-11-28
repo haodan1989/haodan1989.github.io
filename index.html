@@ -90,6 +90,8 @@
                 </div>
             </div>
 
+            <button ng-click= "testWrite()">""<button>
+
             <table>
                 <tr ng-repeat="x in names">
                     <td><center><button ng-click="showWallet(x)">{{x}}</button></center></td>
@@ -106,13 +108,16 @@
                 $scope.myImgSrc = $sce.trustAsResourceUrl('test/background.png');
                 $scope.myLogoSrc = $sce.trustAsResourceUrl('test/logo.png');
                 $scope.mySpinnerSrc = $sce.trustAsResourceUrl('test/spinner.gif');
-                $scope.names = getWalletId();
+                //$scope.names = getWalletId();
 
+
+/*
                 $scope.showWallet = function (wallet) {
                     console.log("Selected Wallet: " + wallet);
                     //Concatenate selected wallet ID with window.locations
                     window.location.href = "http://www.google.com?"+ wallet;
                 };
+*/
 
             });
 
