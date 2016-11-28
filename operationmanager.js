@@ -325,6 +325,7 @@ function testWrite() {
 function testRead() {
   var cookieManager = new CookieManager('walletinformation');
   var cookieVlaue = cookieManager.readCookie()
+  console.log("here");
   alert(cookieVlaue);
 };
 
