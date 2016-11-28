@@ -13,6 +13,7 @@ function JSBridgeOperationModel () {
     this.errormessage = '';
     this.operationname = '';
     this.walletinformation = '{}';
+    this.selectedWallet = '';
 }
 
 /**
@@ -45,7 +46,7 @@ JSBridgeOperationModel.prototype.updateWalletID = function(newWalletid) {
 JSBridgeOperationModel.prototype.cookieJSONString = function() {
     //
 
-    var cookieJSONString = '{"walletid":"' + this.walletid + '", "pwalletid":"' + this.pwalletid  +'", "pwalletweb":"' + this.pwalletweb +'"}';
+    var cookieJSONString = '{"walletid":"' + this.walletid + '", "pwalletid":"' + this.pwalletid  +'", "pwalletweb":"' + this.pwalletweb + '", "selectedWallet":"' + this.selectedWallet + '"}';
     return cookieJSONString;
 };
 
@@ -65,11 +66,13 @@ JSBridgeOperationModel.prototype.redirectURLString = function() {
     if (this.status === "error"){
       //wallet info 
       var jsonWaletInfo = '{"status":"'+ this.status +'", "errormessage":"'+ this.errormessage +'", "operationname":"' + this.operationname + '", "operationid":"' + this.operationid + '"}';
+      console.log(jsonWaletInfo);
       var encodedWalletInfo = Utils.encodeJSONString(jsonWaletInfo);
       redirectURLString = decodedRedirectURL + '://' + window.location.hostname + '?walletinformation='+encodedWalletInfo;
     } else {
       //wallet info 
-      var jsonWaletInfo = '{"walletid":"' + this.walletid + '", "pwalletid":"' + this.pwalletid  +'", "pwalletweb":"' + this.pwalletweb +'", "status":"'+ this.status +'", "errormessage":"'+ this.errormessage +'", "operationname":"' + this.operationname + '", "operationid":"' + this.operationid + '"}';
+      var jsonWaletInfo = '{"walletid":"' + this.walletid + '", "pwalletid":"' + this.pwalletid  +'", "pwalletweb":"' + this.pwalletweb +'", "selectedWallet":"' + this.selectedWallet + '",status":"'+ this.status +'", "errormessage":"'+ this.errormessage +'", "operationname":"' + this.operationname + '", "operationid":"' + this.operationid + '"}';
+      console.log(jsonWaletInfo);
       var encodedWalletInfo = Utils.encodeJSONString(jsonWaletInfo);
       redirectURLString = decodedRedirectURL + '://' + window.location.hostname + '?walletinformation='+encodedWalletInfo;
     }

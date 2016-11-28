@@ -293,8 +293,8 @@ var Utils = new function() {
  */
 
 $(document).ready(function () {
-  var operationManager = new OperationManager();
-  operationManager.performOperation();
+  //var operationManager = new OperationManager();
+  //operationManager.performOperation();
 });
 
 
@@ -307,8 +307,12 @@ function getWalletId() {
   var cookieManager = new CookieManager('walletinformation');
   var cookieValue = cookieManager.readCookie();
   
-  var walletId = JSON.parse(cookieValue).walletid;
-  return walletId.split("|");
+  if(cookieValue == null){
+    return ["no wallet"];
+  }else{
+    var walletId = JSON.parse(cookieValue).walletid;
+    return walletId.split("|");
+  }
 };
 
 

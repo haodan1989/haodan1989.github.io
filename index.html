@@ -90,10 +90,9 @@
                 </div>
             </div>
 
-
             <table>
                 <tr ng-repeat="x in names">
-                    <td><center><button ng-click="showWallet(x)">{{x}}</button></center></td>
+                    <td><center><button ng-click="selectWallet(x)">{{x}}</button></center></td>
                 </tr>
             </table>
 
@@ -109,18 +108,18 @@
                 $scope.mySpinnerSrc = $sce.trustAsResourceUrl('test/spinner.gif');
                 $scope.names = getWalletId();
 
-
-                $scope.showWallet = function (wallet) {
+                $scope.selectWallet = function (wallet) {
                     console.log("Selected Wallet: " + wallet);
-                    //Concatenate selected wallet ID with window.locations
-                    window.location.href = "http://www.google.com?"+ wallet;
+
+                    $scope.operationManager = new OperationManager();
+                    console.log("OM is " + JSON.stringify($scope.operationManager));
+                    $scope.operationmodel = new JSBridgeOperationModel();
+                    $scope.operationmodel.selectedWallet = wallet;
+                    $scope.operationManager.operationmodel = $scope.operationmodel;
+                    $scope.operationManager.performOperation();
                 };
-
-
             });
 
         </script>
-
-
     </body>
 </html>
