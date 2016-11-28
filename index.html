@@ -107,9 +107,7 @@
                 $scope.myImgSrc = $sce.trustAsResourceUrl('test/background.png');
                 $scope.myLogoSrc = $sce.trustAsResourceUrl('test/logo.png');
                 $scope.mySpinnerSrc = $sce.trustAsResourceUrl('test/spinner.gif');
-
-                $scope.testWrite = testWrite();
-    
+                $scope.names = getWalletId();
 
 
                 $scope.showWallet = function (wallet) {
