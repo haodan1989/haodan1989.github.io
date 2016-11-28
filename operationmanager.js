@@ -122,12 +122,12 @@ OperationManager.prototype.performDelete = function() {
  */
 OperationManager.prototype.redirectToApplication = function(jsonString) {
   //perform javascript read operation
-
   var redirectURL = this.operationModel.redirectURLString();
   if (redirectURL) {
     Utils.log('Redirect URL:-  ' + redirectURL);
     window.location = redirectURL;
   }
+
 };
 
 /**
@@ -311,10 +311,13 @@ function getWalletId() {
   return walletId.split("|");
 };
 
+
 /*
  * Test Functions
  */
 function testWrite() {
+
+  console.log("test write!");
   var cookieValue = prompt("Enter Cookie Walue", "{\"walletid\": \"wallet1|wallet2|wallet3\", \"pwalletid\": \"wallet1\", \"pwalletweb\": \"walletweb\"}");
   if (cookieValue != null) {
     var cookieManager = new CookieManager('walletinformation');
